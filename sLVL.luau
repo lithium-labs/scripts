@@ -18,7 +18,7 @@ local capabilities = {
     WritePlayer = not try(function() Instance.new("Player", workspace) end),
     RobloxScript = try(function() return game:GetService("CorePackages").Name and game:GetService("CoreGui").SelectionImageObject end),
     RobloxEngine = try(function() return Instance.new("SurfaceAppearance").TexturePack and game:GetService("CSGDictionaryService").Name end),
-    NotAccessible = try(function() Instance.new("MeshPart").MeshId = "rbxassetid://10124180584" end) and try(function() game:GetService("Chat").LoadDefaultChat = game:GetService("Chat").LoadDefaultChat end),
+    NotAccessible = try(function() Instance.new("MeshPart").MeshContent = Content.none() end) and try(function() game:GetService("Chat").LoadDefaultChat = game:GetService("Chat").LoadDefaultChat end),
     Assistant = try(function() return game:GetService("StreamingService") end) and try(function()
         local _, errMsg = pcall(game:GetService("StreamingService").ExecuteCommandAsync, game:GetService("StreamingService"))
         return not string.find(tostring(errMsg), "lacking permission")
