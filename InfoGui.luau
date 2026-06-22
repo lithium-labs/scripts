@@ -7,16 +7,17 @@ local DEFAULT_CONFIG = {
 	Height = 0.5,
 	Font = Enum.Font.SourceSans,
 	LabelColor = Color3.new(1, 1, 1),
-	LabelHeight = 12,
+	LabelHeight = 20,
 	Scrollable = false,
 	ScrollbarVisible = false,
 	DeleteWhenCreate = true,
+	Offset = 0
 }
 
 --[[
 	Initializes the InfoGui.
 ]]
-function InfoGui.Init(config: InfoGuiConfig?)
+function InfoGui.Init(config)
 	local cfg = {}
 	for key, defaultValue in pairs(DEFAULT_CONFIG) do
 		if config and config[key] ~= nil then
@@ -36,7 +37,17 @@ function InfoGui.Init(config: InfoGuiConfig?)
 		return nil
 	end
 
-	local playerGui = player:WaitForChild("PlayerGui")
+	local playerGui
+	local hui = gethui or get_hidden_ui
+	local s, coregui = pcall(game.GetService, game, "CoreGui")
+
+	if hui then
+		playerGui = hui()
+	elseif s then
+		playerGui = coregui
+	else
+		playerGui = player:WaitForChild("PlayerGui")
+	end
 
 	local gui = Instance.new("ScreenGui")
 	gui.Name = "InfoGui_" .. tostring(math.random(1000, 9999))
@@ -59,7 +70,7 @@ function InfoGui.Init(config: InfoGuiConfig?)
 
 	frame.Size = UDim2.new(0.5, 0, cfg.Height, 0)
 	frame.AnchorPoint = Vector2.new(0, 0.5)
-	frame.Position = UDim2.new(0, 0, 0.5, 0)
+	frame.Position = UDim2.new(0, 0, 0.5 + cfg.Offset, 0)
 	frame.Parent = gui
 	
 	local padding = Instance.new("UIPadding")
