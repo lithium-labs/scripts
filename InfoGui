@@ -5,7 +5,7 @@ InfoGui.__index = InfoGui
 
 local DEFAULT_CONFIG = {
 	Height = 0.5,
-	Font = Enum.Font.SourceSansPro,
+	Font = Enum.Font.SourceSans,
 	LabelColor = Color3.new(1, 1, 1),
 	LabelHeight = 12,
 	Scrollable = false,
@@ -15,7 +15,6 @@ local DEFAULT_CONFIG = {
 
 --[[
 	Initializes the InfoGui.
-	Creates a ScreenGui and a container Frame (or ScrollingFrame).
 ]]
 function InfoGui.Init(config: InfoGuiConfig?)
 	local cfg = {}
@@ -104,7 +103,7 @@ function InfoGui:AddLabel(text: string, color: Color3?)
 	if typeof(self._config.Font) == "Font" then
 		label.FontFace = self._config.Font
 	else
-		label.Font = self._config.Font or Enum.Font.SourceSansPro
+		label.Font = self._config.Font or Enum.Font.SourceSans
 	end
 
 	label.Parent = self._frame
