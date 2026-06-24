@@ -1,4 +1,4 @@
--- Last Update: Fix MeshPart unpacking
+-- Last Update: Improved error logging and hopefuly final fix of mesh parts
 local NIL = {} :: any
 
 local instanceTable = {
@@ -380,6 +380,17 @@ local instanceTable = {
 } :: {[string]: {[string]: any}}
 
 -- HELPER FUNCTIONS
+local function logError(context: string, details: string, help: string?)
+	local msg = string.format(
+		"\n[SerializationService Error]\n  Context: %s\n  Details: %s",
+		context, details
+	)
+	if help then
+		msg = msg .. string.format("\n  Help:    %s", help)
+	end
+	warn(msg .. "\n")
+end
+
 local function getSorted(tbl, f)
 	local clone = table.clone(tbl)
 	table.sort(clone, f)
@@ -665,14 +676,28 @@ local function deserialize(data: string, offset: number)
 
 		local inst
 		if className == "MeshPart" and props.MeshId and props.MeshId ~= "" then
-			local success, meshPart = pcall(function()
-				return game:GetService("InsertService"):CreateMeshPartAsync(
-					props.MeshId,
-					props.CollisionFidelity or Enum.CollisionFidelity.Box,
-					props.RenderFidelity or Enum.RenderFidelity.Automatic
-				)
+			local mId = props.MeshId
+			local col = props.CollisionFidelity or Enum.CollisionFidelity.Box
+			local ren = props.RenderFidelity or Enum.RenderFidelity.Automatic
+
+			local success, result = pcall(function()
+				local AssetService = game:GetService("AssetService")
+				if AssetService and pcall(function() return AssetService.CreateMeshPartAsync end) then
+					return AssetService:CreateMeshPartAsync(mId, col, ren)
+				end
+				return game:GetService("InsertService"):CreateMeshPartAsync(mId, col, ren)
 			end)
-			inst = (success and meshPart) and meshPart or Instance.new(className)
+
+			if success and typeof(result) == "Instance" then
+				inst = result
+			else
+				inst = Instance.new(className)
+				logError(
+					"Deserializing MeshPart",
+					string.format("Failed to create MeshPart asynchronously with MeshId %q. Internal error: %s", mId, tostring(result)),
+					"MeshId is read-only and requires AssetService/InsertService to construct. Ensure your script context has permissions and the asset ID is valid."
+				)
+			end
 		else
 			inst = Instance.new(className)
 		end
@@ -681,7 +706,14 @@ local function deserialize(data: string, offset: number)
 
 		for k, v in props do
 			if k ~= "MeshId" then
-				pcall(function() inst[k] = v end)
+				local s, err = pcall(function() inst[k] = v end)
+				if not s then
+					logError(
+						string.format("Applying property %q to %s", k, className),
+						tostring(err),
+						string.format("The property might be read-only, restricted in your current identity level, or the value '%s' is invalid.", tostring(v))
+					)
+				end
 			end
 		end
 
