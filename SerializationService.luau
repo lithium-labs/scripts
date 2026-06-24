@@ -1,3 +1,5 @@
+local NIL = {} :: any
+
 local instanceTable = {
 	Part = {
 		Color = Color3.fromRGB(163, 162, 165),
@@ -25,7 +27,6 @@ local instanceTable = {
 		BackSurface = Enum.SurfaceType.Smooth,
 		CastShadow = true,
 		CollisionGroup = "Default",
-		CustomPhysicalProperties = nil,
 		Massless = true
 	},
 	KeyframeSequence = {
@@ -53,6 +54,327 @@ local instanceTable = {
 		LevelOfDetail = Enum.ModelLevelOfDetail.Automatic,
 		ModelStreamingMode = Enum.ModelStreamingMode.Default,
 		WorldPivot = CFrame.new()
+	},
+	Folder = {
+		Name = "Folder",
+		Archivable = true
+	},
+	IntValue = {
+		Name = "Value",
+		Archivable = true,
+		Value = 0
+	},
+	NumberValue = {
+		Name = "Value",
+		Archivable = true,
+		Value = 0
+	},
+	BoolValue = {
+		Name = "Value",
+		Archivable = true,
+		Value = false
+	},
+	StringValue = {
+		Name = "Value",
+		Archivable = true,
+		Value = ""
+	},
+	Vector3Value = {
+		Name = "Value",
+		Archivable = true,
+		Value = Vector3.new()
+	},
+	CFrameValue = {
+		Name = "Value",
+		Archivable = true,
+		Value = CFrame.new()
+	},
+	ObjectValue = {
+		Name = "Value",
+		Archivable = true,
+		Value = NIL
+	},
+	BodyColors = {
+		Name = "Body Colors",
+		Archivable = true,
+		HeadColor3 = Color3.fromRGB(253, 234, 141),
+		LeftArmColor3 = Color3.fromRGB(253, 234, 141),
+		RightArmColor3 = Color3.fromRGB(253, 234, 141),
+		LeftLegColor3 = Color3.fromRGB(13, 105, 172),
+		RightLegColor3 = Color3.fromRGB(13, 105, 172),
+		TorsoColor3 = Color3.fromRGB(40, 127, 71)
+	},
+	Pants = {
+		Name = "Clothing",
+		Archivable = true,
+		Color3 = Color3.new(1, 1, 1),
+		PantsTemplate = ""
+	},
+	Shirt = {
+		Name = "Clothing",
+		Archivable = true,
+		Color3 = Color3.new(1, 1, 1),
+		ShirtTemplate = ""
+	},
+	Humanoid = {
+		Name = "Humanoid",
+		Archivable = true,
+		CameraOffset = Vector3.new(),
+		DisplayDistanceType = Enum.HumanoidDisplayDistanceType.Viewer,
+		DisplayName = "",
+		HealthDisplayDistance = 100,
+		HealthDisplayType = Enum.HumanoidHealthDisplayType.DisplayWhenDamaged,
+		NameDisplayDistance = 100,
+		NameOcclusion = Enum.NameOcclusion.OccludeAll,
+		RigType = Enum.HumanoidRigType.R6,
+		BreakJointsOnDeath = true,
+		EvaluateStateMachine = true,
+		RequiresNeck = true,
+		AutoRotate = true,
+		Jump = false,
+		PlatformStand = false,
+		Sit = false,
+		TargetPoint = Vector3.new(),
+		WalkToPoint = Vector3.new(),
+		Health = 100,
+		HipHeight = 0,
+		MaxHealth = 100,
+		MaxSlopeAngle = 89,
+		WalkSpeed = 16,
+		AutoJumpEnabled = true,
+		JumpPower = 50,
+		UseJumpPower = true,
+		JumpHeight = 7.199999809265137
+	},
+	Script = {
+		Name = "Script",
+		Archivable = true,
+		Enabled = true,
+		RunContext = Enum.RunContext.Legacy
+	},
+	BindableEvent = {
+		Name = "Event",
+		Archivable = true
+	},
+	BindableFunction = {
+		Name = "Event",
+		Archivable = true
+	},
+	Animation = {
+		Name = "Animation",
+		Archivable = true,
+		AnimationId = ""
+	},
+	MeshPart = {
+		Name = "MeshPart",
+		Archivable = true,
+		Color = Color3.fromRGB(163, 162, 165),
+		CastShadow = true,
+		DoubleSided = false,
+		Material = Enum.Material.Plastic,
+		MaterialVariant = "",
+		MeshId = "",
+		Reflectance = 0,
+		RenderFidelity = Enum.RenderFidelity.Automatic,
+		TextureID = "",
+		Transparency = 0,
+		Locked = false,
+		Size = Vector3.new(4, 1.2, 2),
+		Position = Vector3.new(),
+		Orientation = Vector3.new(),
+		CFrame = CFrame.new(),
+		Anchored = false,
+		Massless = false,
+		CanCollide = false,
+		CanTouch = false,
+		CanQuery = false,
+		CollisionGroup = "Default",
+		CollisionFidelity = Enum.CollisionFidelity.Box
+	},
+	Weld = {
+		Name = "Weld",
+		Archivable = true,
+		Part0 = NIL,
+		Part1 = NIL,
+		C0 = CFrame.new(),
+		C1 = CFrame.new(),
+		Enabled = true
+	},
+	WeldConstraint = {
+		Name = "WeldConstraint",
+		Archivable = true,
+		Part0 = NIL,
+		Part1 = NIL,
+		Enabled = true
+	},
+	Motor6D = {
+		Name = "Motor6D",
+		Archivable = true,
+		Part0 = NIL,
+		Part1 = NIL,
+		C0 = CFrame.new(),
+		C1 = CFrame.new(),
+		Enabled = true,
+		MaxVelocity = 0,
+		CurrentAngle = 0,
+		DesiredAngle = 0
+	},
+	Attachment = {
+		Name = "Attachment",
+		Archivable = true,
+		Visible = false,
+		CFrame = CFrame.new(),
+		Axis = Vector3.new(),
+		SecondaryAxis = Vector3.new()
+	},
+	SpecialMesh = {
+		Name = "Mesh",
+		Archivable = true,
+		MeshId = "",
+		MeshType = Enum.MeshType.Head,
+		Offset = Vector3.new(),
+		Scale = Vector3.new(),
+		TextureId = "",
+		VertexColor = Vector3.new()
+	},
+	BillboardGui = {
+		Name = "BillboardGui",
+		Archivable = true,
+		Active = false,
+		Adornee = NIL,
+		AlwaysOnTop = false,
+		Enabled = true,
+		ExtentsOffset = Vector3.new(),
+		Brightness = 1,
+		LightInfluence = 0,
+		MaxDistance = math.huge,
+		PlayerToHideFrom = NIL,
+		ResetOnSpawn = true,
+		Size = UDim2.new(),
+		SizeOffset = Vector2.new(),
+		StudsOffset = Vector3.new(),
+		ZIndexBehavior = Enum.ZIndexBehavior.Global,
+		ClipsDescendants = false,
+		AutoLocalize = true
+	},
+	ScrollingFrame = {
+		Name = "ScrollingFrame",
+		Archivable = true,
+		Active = false,
+		AnchorPoint = Vector2.new(),
+		AutomaticSize = Enum.AutomaticSize.None,
+		AutomaticCanvasSize = Enum.AutomaticSize.None,
+		BackgroundColor3 = Color3.fromRGB(163, 162, 165),
+		BorderColor3 = Color3.fromRGB(27, 42, 53),
+		BorderMode = Enum.BorderMode.Outline,
+		BorderSizePixel = 1,
+		BackgroundTransparency = 0,
+		Interactable = true,
+		LayoutOrder = 0,
+		Position = UDim2.new(),,
+		Size = UDim2.new(),
+		SizeConstraint = Enum.SizeConstraint.RelativeXY,
+		Visible = true,
+		ZIndex = 1,
+		Rotation = 0,
+		ClipsDescendants = true,
+		AutoLocalize = true,
+		BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png",
+		MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
+		TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png",
+		CanvasPosition = Vector2.new(),
+		ElasticBehavior = Enum.ElasticBehavior.WhenScrollable,
+		HorizontalScrollBarInset = Enum.ScrollBarInset.None,
+		ScrollBarImageColor3 = Color3.new(1, 1, 1),
+		ScrollBarImageTransparency = 0,
+		ScrollBarThickness = 12,
+		ScrollingDirection = Enum.ScrollingDirection.XY,
+		ScrollingEnabled = true,
+		VerticalScrollBarInset = Enum.ScrollBarInset.None,
+		VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right,
+		Selectable = true
+	},
+	ImageLabel = {
+		Name = "ImageLabel",
+		Archivable = true,
+		Active = false,
+		AnchorPoint = Vector2.new(),
+		BackgroundColor3 = Color3.fromRGB(163, 162, 165),
+		BorderColor3 = Color3.fromRGB(27, 42, 53),
+		BorderMode = Enum.BorderMode.Outline,
+		BorderSizePixel = 1,
+		BackgroundTransparency = 0,
+		Position = UDim2.new(),
+		Size = UDim2.new(),
+		SizeConstraint = Enum.SizeConstraint.RelativeXY,
+		Visible = true,
+		ZIndex = 1,
+		Rotation = 0,
+		ClipsDescendants = false,
+		Image = "",
+		ImageColor3 = Color3.new(1, 1, 1),
+		ImageRectOffset = Vector2.new(),
+		ImageRectSize = Vector2.new(),
+		ImageTransparency = 0,
+		ScaleType = Enum.ScaleType.Stretch,
+		ResampleMode = Enum.ResamplerMode.Default,
+		AutoLocalize = true,
+		TileSize = UDim2.new(),
+		SliceCenter = Rect.new(),
+		SliceScale = 1
+	},
+	TextLabel = {
+		Name = "TextLabel",
+		Archivable = true,
+		Active = false,
+		AnchorPoint = Vector2.new(),
+		BackgroundColor3 = Color3.fromRGB(163, 162, 165),
+		BorderColor3 = Color3.fromRGB(27, 42, 53),
+		BorderMode = Enum.BorderMode.Outline,
+		BorderSizePixel = 1,
+		BackgroundTransparency = 0,
+		Interactable = true,
+		LayoutOrder = 0,
+		Position = UDim2.new(),
+		Size = UDim2.new(),
+		SizeConstraint = Enum.SizeConstraint.RelativeXY,
+		Visible = true,
+		ZIndex = 1,
+		Rotation = 0,
+		ClipsDescendants = false,
+		AutoLocalize = true,
+		LineHeight = 1,
+		MaxVisibleGraphemes = -1,
+		OpenTypeFeatures = "",
+		RichText = false,
+		Text = "Label",
+		FontFace = Font.new("rbxasset://fonts/families/LegacyArial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+		TextColor3 = Color3.fromRGB(27, 42, 53),
+		TextDirection = Enum.TextDirection.Auto,
+		TextScaled = false,
+		TextSize = 8,
+		TextStrokeColor3 = Color3.new(),
+		TextStrokeTransparency = 1,
+		TextTransparency = 0,
+		TextTruncate = Enum.TextTruncate.None,
+		TextWrapped = false,
+		TextXAlignment = Enum.TextXAlignment.Center,
+		TextYAlignment = Enum.TextYAlignment.Center
+	},
+	BodyPosition = {
+		Name = "BodyPosition",
+		Archivable = true,
+		MaxForce = Vector3.new(4000, 4000, 4000),
+		P = 1250,
+		Velocity = Vector3.new(0, 2, 0)
+	},
+	BodyGyro = {
+		Name = "BodyGyro",
+		Archivable = true,
+		CFrame = CFrame.new(),
+		D = 500,
+		MaxTorque = Vector3.new(400000, 0, 400000),
+		P = 3000
 	}
 } :: {[string]: {[string]: any}}
 
@@ -71,7 +393,7 @@ end
 
 -- DEFINITIONS
 local numberIdentifiers = getSorted({"nan", "+inf", "-inf", "u8", "u16", "u32", "u64", "i8", "i16", "i32", "i64", "f32", "f64"})
-local datatypeList = getSorted({"number", "true", "false", "string", "Color3", "Vector3", "CFrame", "EnumItem", "nil"})
+local datatypeList = getSorted({"number", "true", "false", "string", "Color3", "Vector3", "CFrame", "EnumItem", "Instance", "Font", "PhysicalProperties", "nil"})
 
 local enumList = getSorted(Enum:GetEnums(), function(a, b) return tostring(a) < tostring(b) end)
 local enumIndexMap = {}
@@ -128,7 +450,7 @@ local function packNumber(n, t_index)
 end
 
 -- DATATYPE SERIALIZATION
-local function serializeDatatype(datatype: any)
+local function serializeDatatype(datatype: any, instanceMap: {[Instance]: number}?)
 	local function getIdentifier(t) return string.char(table.find(datatypeList, t)) end
 	local t = typeof(datatype)
 
@@ -138,9 +460,9 @@ local function serializeDatatype(datatype: any)
 	end
 
 	local idIdx = table.find(datatypeList, t)
-	if not idIdx then 
+	if not idIdx then
 		warn("Unhandled type:", t)
-		return getIdentifier("nil") 
+		return getIdentifier("nil")
 	end
 	local identifier = string.char(idIdx)
 
@@ -159,12 +481,22 @@ local function serializeDatatype(datatype: any)
 	elseif t == "EnumItem" then
 		local enumId = enumIndexMap[datatype.EnumType]
 		return identifier .. string.pack("<I2I2", enumId or 0, datatype.Value)
+	elseif t == "Font" then
+		return identifier .. string.pack("<I2", #datatype.Family) .. datatype.Family .. string.pack("<I2I2", datatype.Weight.Value, datatype.Style.Value)
+	elseif t == "PhysicalProperties" then
+		return identifier .. string.pack("<fffff", datatype.Density, datatype.Friction, datatype.Elasticity, datatype.FrictionWeight, datatype.ElasticityWeight)
+	elseif t == "Instance" then
+		if instanceMap and instanceMap[datatype] then
+			return identifier .. string.pack("<I4", instanceMap[datatype])
+		else
+			return getIdentifier("nil")
+		end
 	end
 	return getIdentifier("nil")
 end
 
 -- INSTANCE SERIALIZATION
-local function serializeProperties(target: Instance)
+local function serializeProperties(target: Instance, instanceMap: {[Instance]: number}?)
 	local class = target.ClassName
 	local classId = table.find(sortedInstances, class)
 	if not classId or not instanceTable[class] then return "" end
@@ -172,26 +504,56 @@ local function serializeProperties(target: Instance)
 	local data = string.char(classId)
 	for i, propName in ipairs(sortedKeys[class]) do
 		local success, val = pcall(function() return target[propName] end)
-		if success and val ~= instanceTable[class][propName] then
-			local serializedVal = serializeDatatype(val)
-			
-			-- PropID .. DataLength .. Data
-			data = data .. string.char(i) .. string.pack("<I2", #serializedVal) .. serializedVal
+		local default = instanceTable[class][propName]
+		if default == NIL then default = nil end
+
+		if success and val ~= default then
+			local serializedVal = serializeDatatype(val, instanceMap)
+			if serializedVal then
+				-- PropID .. DataLength .. Data
+				data = data .. string.char(i) .. string.pack("<I2", #serializedVal) .. serializedVal
+			end
 		end
 	end
-	return data .. string.char(0) 
+	return data .. string.char(0)
+end
+
+local function buildInstanceMap(target: Instance, map: {[Instance]: number}, list: {Instance})
+	table.insert(list, target)
+	map[target] = #list
+	for _, child in target:GetChildren() do
+		if instanceTable[child.ClassName] then
+			buildInstanceMap(child, map, list)
+		end
+	end
 end
 
 local function serialize(target: Instance)
-	local instanceData = serializeProperties(target)
-	if #instanceData == 0 then return "" end
+	if not instanceTable[target.ClassName] then return "" end
 
-	local children = target:GetChildren()
-	instanceData = instanceData .. string.pack("<I2", #children)
-	for _, child in children do
-		instanceData = instanceData .. serialize(child)
+	local map = {}
+	local list = {}
+	buildInstanceMap(target, map, list)
+
+	local function _serialize(inst: Instance)
+		local instanceData = serializeProperties(inst, map)
+		if #instanceData == 0 then return "" end
+
+		local validChildren = {}
+		for _, child in inst:GetChildren() do
+			if instanceTable[child.ClassName] then
+				table.insert(validChildren, child)
+			end
+		end
+
+		instanceData = instanceData .. string.pack("<I2", #validChildren)
+		for _, child in validChildren do
+			instanceData = instanceData .. _serialize(child)
+		end
+		return instanceData
 	end
-	return instanceData
+
+	return _serialize(target)
 end
 
 -- DESERIALIZATION
@@ -232,44 +594,86 @@ local function deserializeDatatype(data: string, offset: number)
 			end
 		end
 		return nil, offset + 4
+	elseif typeName == "Font" then
+		local len = string.unpack("<I2", data, offset)
+		local family = string.sub(data, offset + 2, offset + 1 + len)
+		local weightVal, styleVal = string.unpack("<I2I2", data, offset + 2 + len)
+
+		local weightEnum, styleEnum = Enum.FontWeight.Regular, Enum.FontStyle.Normal
+		for _, w in Enum.FontWeight:GetEnumItems() do
+			if w.Value == weightVal then weightEnum = w; break end
+		end
+		for _, s in Enum.FontStyle:GetEnumItems() do
+			if s.Value == styleVal then styleEnum = s; break end
+		end
+
+		return Font.new(family, weightEnum, styleEnum), offset + 6 + len
+	elseif typeName == "PhysicalProperties" then
+		local den, fri, ela, friW, elaW = string.unpack("<fffff", data, offset)
+		return PhysicalProperties.new(den, fri, ela, friW, elaW), offset + 20
+	elseif typeName == "Instance" then
+		local index = string.unpack("<I4", data, offset)
+		return {__isInstancePtr = true, index = index}, offset + 4
 	end
 	return nil, offset
 end
 
 local function deserialize(data: string, offset: number)
-	local classId = string.byte(data, offset)
-	local className = sortedInstances[classId]
-	if not className then return nil, offset + 1 end
-	offset += 1
+	local instList = {}
+	local deferredProps = {}
 
-	local inst = Instance.new(className)
-	local propKeys = sortedKeys[className]
+	local function _deserialize(currentOffset)
+		local classId = string.byte(data, currentOffset)
+		local className = sortedInstances[classId]
+		if not className then return nil, currentOffset + 1 end
+		currentOffset += 1
 
-	-- Properties
-	while true do
-		local propId = string.byte(data, offset)
-		offset += 1
-		if propId == 0 then break end
+		local inst = Instance.new(className)
+		table.insert(instList, inst)
 
-		local len = string.unpack("<I2", data, offset)
-		local val = deserializeDatatype(data, offset + 2)
-		local propName = propKeys[propId]
-		if propName then
-			pcall(function() inst[propName] = val end)
+		local propKeys = sortedKeys[className]
+
+		-- Properties
+		while true do
+			local propId = string.byte(data, currentOffset)
+			currentOffset += 1
+			if propId == 0 then break end
+
+			local len = string.unpack("<I2", data, currentOffset)
+			local val, _ = deserializeDatatype(data, currentOffset + 2)
+			local propName = propKeys[propId]
+			if propName then
+				if type(val) == "table" and val.__isInstancePtr then
+					table.insert(deferredProps, {inst = inst, prop = propName, ptr = val.index})
+				else
+					pcall(function() inst[propName] = val end)
+				end
+			end
+			currentOffset += 2 + len
 		end
-		offset += 2 + len
+
+		-- Children
+		local childCount = string.unpack("<I2", data, currentOffset)
+		currentOffset += 2
+		for i = 1, childCount do
+			local child, nextOff = _deserialize(currentOffset)
+			if child then child.Parent = inst end
+			currentOffset = nextOff
+		end
+
+		return inst, currentOffset
 	end
 
-	-- Children
-	local childCount = string.unpack("<I2", data, offset)
-	offset += 2
-	for i = 1, childCount do
-		local child, nextOffset = deserialize(data, offset)
-		if child then child.Parent = inst end
-		offset = nextOffset
+	local rootInst, finalOffset = _deserialize(offset or 1)
+
+	for _, def in deferredProps do
+		local targetInst = instList[def.ptr]
+		if targetInst then
+			pcall(function() def.inst[def.prop] = targetInst end)
+		end
 	end
 
-	return inst, offset
+	return rootInst, finalOffset
 end
 
 return {
