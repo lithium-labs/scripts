@@ -687,7 +687,10 @@ local function deserialize(data: string, offset: number)
 					local numId = string.match(tostring(mId), "%d+")
 					if numId then
 						local content = Content.fromAssetId(tonumber(numId))
-						return AssetService:CreateMeshPartAsync(content, col, ren)
+						return AssetService:CreateMeshPartAsync(content, {
+							CollisionFidelity = col,
+							RenderFidelity = ren
+						})
 					end
 				end
 				-- Fallback for InsertService or if string extraction fails
