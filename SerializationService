@@ -271,7 +271,7 @@ local instanceTable = {
 		BackgroundTransparency = 0,
 		Interactable = true,
 		LayoutOrder = 0,
-		Position = UDim2.new(),,
+		Position = UDim2.new(),
 		Size = UDim2.new(),
 		SizeConstraint = Enum.SizeConstraint.RelativeXY,
 		Visible = true,
@@ -676,14 +676,7 @@ local function deserialize(data: string, offset: number)
 	return rootInst, finalOffset
 end
 
-local module = {
+return {
 	serialize = serialize,
 	deserialize = function(data, offset) return deserialize(data, offset or 1) end
 }
-
--- this thing managed to break so now we have a _G fallback
-if _G then
-	_G.SerializationService = module
-end
-
-return module
