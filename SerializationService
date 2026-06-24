@@ -1,4 +1,4 @@
--- Last Update: Improved error logging and hopefuly final fix of mesh parts
+-- Last Update: A tiny enum error
 local NIL = {} :: any
 
 local instanceTable = {
@@ -495,7 +495,7 @@ local function serializeDatatype(datatype: any, instanceMap: {[Instance]: number
 	elseif t == "CFrame" then
 		return identifier .. string.pack("<ffffffffffff", datatype:GetComponents())
 	elseif t == "EnumItem" then
-		local enumId = enumIndexMap[datatype.EnumType]
+		local enumId = table.find(enumList, datatype.EnumType)
 		return identifier .. string.pack("<I2I2", enumId or 0, datatype.Value)
 	elseif t == "Font" then
 		return identifier .. string.pack("<I2", #datatype.Family) .. datatype.Family .. string.pack("<I2I2", datatype.Weight.Value, datatype.Style.Value)
@@ -611,7 +611,7 @@ local function deserializeDatatype(data: string, offset: number)
 		local eId, eVal = string.unpack("<I2I2", data, offset)
 		local enum = enumList[eId]
 		if enum then
-			for _, item in enum:GetEnumItems() do
+			for _, item in ipairs(enum:GetEnumItems()) do
 				if item.Value == eVal then return item, offset + 4 end
 			end
 		end
