@@ -676,7 +676,14 @@ local function deserialize(data: string, offset: number)
 	return rootInst, finalOffset
 end
 
-return {
+local module = {
 	serialize = serialize,
 	deserialize = function(data, offset) return deserialize(data, offset or 1) end
 }
+
+-- this thing managed to break so now we have a _G fallback
+if _G then
+	_G.SerializationService = module
+end
+
+return module
