@@ -1,4 +1,4 @@
--- Last Update: Fixed enum mismatches in the worst way possible
+-- Last Update: Just praying that mesh parts are fixed and enums too
 local NIL = {} :: any
 local enumList = {
 	Enum.AccessModifierType,
@@ -1223,9 +1223,15 @@ local function deserialize(data: string, offset: number)
 			local success, result = pcall(function()
 				local AssetService = game:GetService("AssetService")
 				if AssetService and pcall(function() return AssetService.CreateMeshPartAsync end) then
-					return AssetService:CreateMeshPartAsync(mId, col, ren)
+					-- Extract the number from "rbxassetid://123" or similar
+					local numId = string.match(tostring(mId), "%d+")
+					if numId then
+						local content = Content.fromAssetId(tonumber(numId))
+						return AssetService:CreateMeshPartAsync(content, col, ren)
+					end
 				end
-				return game:GetService("InsertService"):CreateMeshPartAsync(mId, col, ren)
+				-- Fallback for InsertService or if string extraction fails
+				return game:GetService("InsertService"):CreateMeshPartAsync(tostring(mId), col, ren)
 			end)
 
 			if success and typeof(result) == "Instance" then
