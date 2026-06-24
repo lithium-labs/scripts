@@ -1,4 +1,4 @@
--- Last Update: Vector2 and UDim2
+-- Last Update: Fix MeshPart unpacking
 local NIL = {} :: any
 
 local instanceTable = {
@@ -639,10 +639,10 @@ local function deserialize(data: string, offset: number)
 		if not className then return nil, currentOffset + 1 end
 		currentOffset += 1
 
-		local inst = Instance.new(className)
-		table.insert(instList, inst)
-
 		local propKeys = sortedKeys[className]
+
+		local props = {}
+		local localDeferred = {}
 
 		-- Properties
 		while true do
@@ -655,12 +655,38 @@ local function deserialize(data: string, offset: number)
 			local propName = propKeys[propId]
 			if propName then
 				if type(val) == "table" and val.__isInstancePtr then
-					table.insert(deferredProps, {inst = inst, prop = propName, ptr = val.index})
+					table.insert(localDeferred, {prop = propName, ptr = val.index})
 				else
-					pcall(function() inst[propName] = val end)
+					props[propName] = val
 				end
 			end
 			currentOffset += 2 + len
+		end
+
+		local inst
+		if className == "MeshPart" and props.MeshId and props.MeshId ~= "" then
+			local success, meshPart = pcall(function()
+				return game:GetService("InsertService"):CreateMeshPartAsync(
+					props.MeshId,
+					props.CollisionFidelity or Enum.CollisionFidelity.Box,
+					props.RenderFidelity or Enum.RenderFidelity.Automatic
+				)
+			end)
+			inst = (success and meshPart) and meshPart or Instance.new(className)
+		else
+			inst = Instance.new(className)
+		end
+
+		table.insert(instList, inst)
+
+		for k, v in props do
+			if k ~= "MeshId" then
+				pcall(function() inst[k] = v end)
+			end
+		end
+
+		for _, def in localDeferred do
+			table.insert(deferredProps, {inst = inst, prop = def.prop, ptr = def.ptr})
 		end
 
 		-- Children
