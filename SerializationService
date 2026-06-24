@@ -1,3 +1,4 @@
+-- Last Update: Vector2 and UDim2
 local NIL = {} :: any
 
 local instanceTable = {
@@ -393,7 +394,7 @@ end
 
 -- DEFINITIONS
 local numberIdentifiers = getSorted({"nan", "+inf", "-inf", "u8", "u16", "u32", "u64", "i8", "i16", "i32", "i64", "f32", "f64"})
-local datatypeList = getSorted({"number", "true", "false", "string", "Color3", "Vector3", "CFrame", "EnumItem", "Instance", "Font", "PhysicalProperties", "nil"})
+local datatypeList = getSorted({"number", "true", "false", "string", "Color3", "Vector2", "Vector3", "UDim2", "CFrame", "EnumItem", "Instance", "Font", "PhysicalProperties", "nil"})
 
 local enumList = getSorted(Enum:GetEnums(), function(a, b) return tostring(a) < tostring(b) end)
 local enumIndexMap = {}
@@ -476,6 +477,10 @@ local function serializeDatatype(datatype: any, instanceMap: {[Instance]: number
 		return identifier .. string.pack("BBB", math.floor(datatype.R*255), math.floor(datatype.G*255), math.floor(datatype.B*255))
 	elseif t == "Vector3" then
 		return identifier .. string.pack("<fff", datatype.X, datatype.Y, datatype.Z)
+	elseif t == "Vector2" then
+		return identifier .. string.pack("<ff", datatype.X, datatype.Y)
+	elseif t == "UDim2" then
+		return identifier .. string.pack("<fi4fi4", datatype.X.Scale, datatype.X.Offset, datatype.Y.Scale, datatype.Y.Offset)
 	elseif t == "CFrame" then
 		return identifier .. string.pack("<ffffffffffff", datatype:GetComponents())
 	elseif t == "EnumItem" then
@@ -582,6 +587,12 @@ local function deserializeDatatype(data: string, offset: number)
 	elseif typeName == "Vector3" then
 		local x, y, z = string.unpack("<fff", data, offset)
 		return Vector3.new(x, y, z), offset + 12
+	elseif typeName == "Vector2" then
+		local x, y = string.unpack("<ff", data, offset)
+		return Vector2.new(x, y), offset + 8
+	elseif typeName == "UDim2" then
+		local xs, xo, ys, yo = string.unpack("<fi4fi4", data, offset)
+		return UDim2.new(xs, xo, ys, yo), offset + 16
 	elseif typeName == "CFrame" then
 		local c = {string.unpack("<ffffffffffff", data, offset)}
 		return CFrame.new(unpack(c, 1, 12)), offset + 48
