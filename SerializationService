@@ -1,4 +1,4 @@
--- Last Update: Fixed tiny special mesh deserialization problem
+-- Last Update: Added UIGradient, CanvasGroup, UIListLayout, TextButton, ImageButton, UITextSizeConstraint, UIStroke to instanceTable
 local NIL = {} :: any
 local enumList = {Enum.AccessModifierType, Enum.AccessoryType, Enum.ActionType, Enum.ActivePayerStatus, Enum.ActuatorRelativeTo, Enum.ActuatorType, Enum.AdAvailabilityResult, Enum.AdEventType, Enum.AdFormat, Enum.AdShape, Enum.AdTeleportMethod, Enum.AdUIEventType, Enum.AdUIType, Enum.AdUnitStatus, Enum.AdornCullingMode, Enum.AdornShading, Enum.AlignType, Enum.AlphaMode, Enum.AnalyticsCustomFieldKeys, Enum.AnalyticsEconomyAction, Enum.AnalyticsEconomyFlowType, Enum.AnalyticsEconomyTransactionType, Enum.AnalyticsLogLevel, Enum.AnalyticsProgressionStatus, Enum.AnalyticsProgressionType, Enum.AnimationClipFromVideoStatus, Enum.AnimationNodeBlend2DInputMode, Enum.AnimationNodeInterruptible, Enum.AnimationNodePhaseSync, Enum.AnimationNodePlayMode, Enum.AnimationNodeTransitionType, Enum.AnimationNodeType, Enum.AnimationNodeWaitFor, Enum.AnimationPriority, Enum.AnimatorRetargetingMode, Enum.AntiAliasing, Enum.AppLifecycleManagerState, Enum.AppShellActionType, Enum.AppShellFeature, Enum.AppUpdateStatus, Enum.ApplyStrokeMode, Enum.AspectType, Enum.AssetCreatorType, Enum.AssetFetchStatus, Enum.AssetRepresentation, Enum.AssetType, Enum.AssetTypeVerification, Enum.AudioApiRollout, Enum.AudioCaptureMode, Enum.AudioChannelLayout, Enum.AudioFilterType, Enum.AudioSimulationFidelity, Enum.AudioSubType, Enum.AudioWindowSize, Enum.AuthorityMode, Enum.AutomaticSize, Enum.AvatarAssetType, Enum.AvatarChatServiceFeature, Enum.AvatarContextMenuOption, Enum.AvatarGenerationError, Enum.AvatarItemType, Enum.AvatarPromptResult, Enum.AvatarSettingsAccessoryLimitMethod, Enum.AvatarSettingsAccessoryMode, Enum.AvatarSettingsAnimationClipsMode, Enum.AvatarSettingsAnimationPacksMode, Enum.AvatarSettingsAppearanceMode, Enum.AvatarSettingsBuildMode, Enum.AvatarSettingsCharacterControllerMode, Enum.AvatarSettingsClothingMode, Enum.AvatarSettingsCollisionMode, Enum.AvatarSettingsCustomAccessoryMode, Enum.AvatarSettingsCustomBodyType, Enum.AvatarSettingsCustomClothingMode, Enum.AvatarSettingsHitAndTouchDetectionMode, Enum.AvatarSettingsJumpMode, Enum.AvatarSettingsLegacyCollisionMode, Enum.AvatarSettingsScaleMode, Enum.AvatarThumbnailCustomizationType, Enum.AvatarUnificationMode, Enum.Axis, Enum.BenefitType, Enum.BinType, Enum.BodyPart, Enum.BodyPartR15, Enum.BorderMode, Enum.BorderStrokePosition, Enum.BreakReason, Enum.BulkMoveMode, Enum.BundleType, Enum.Button, Enum.ButtonStyle, Enum.CageType, Enum.CameraMode, Enum.CameraPanMode, Enum.CameraType, Enum.CaptureGalleryPermission, Enum.CaptureType, Enum.CatalogCategoryFilter, Enum.CatalogSortAggregation, Enum.CatalogSortType, Enum.CellBlock, Enum.CellMaterial, Enum.CellOrientation, Enum.CenterDialogType, Enum.CharacterControlMode, Enum.ChatCallbackType, Enum.ChatColor, Enum.ChatMode, Enum.ChatPrivacyMode, Enum.ChatRestrictionStatus, Enum.ChatStyle, Enum.ChatVersion, Enum.ClientAnimatorThrottlingMode, Enum.CloseReason, Enum.CollisionFidelity, Enum.CommandPermission, Enum.CompositeValueCurveType, Enum.CompressionAlgorithm, Enum.ComputerCameraMovementMode, Enum.ComputerMovementMode, Enum.ConfigSnapshotErrorState, Enum.ConnectionError, Enum.ConnectionState, Enum.ContentSourceType, Enum.ContextActionPriority, Enum.ContextActionResult, Enum.ControlMode, Enum.CoreGuiType, Enum.CreateAssetResult, Enum.CreateContentResult, Enum.CreateOutfitFailure, Enum.CreatorType, Enum.CreatorTypeFilter, Enum.CurrencyType, Enum.CustomCameraMode, Enum.DataModelExtractorFileType, Enum.DataStoreRequestType, Enum.DebugBreakModeType, Enum.DebuggerResumeType, Enum.DevCameraOcclusionMode, Enum.DevComputerCameraMovementMode, Enum.DevComputerMovementMode, Enum.DevTouchCameraMovementMode, Enum.DevTouchMovementMode, Enum.DeveloperMemoryTag, Enum.DeviceFeatureType, Enum.DeviceForm, Enum.DeviceLevel, Enum.DeviceType, Enum.DialogBehaviorType, Enum.DialogPurpose, Enum.DialogTone, Enum.DigitsRigDescriptionSide, Enum.DiscountType, Enum.DisplayScalingMode, Enum.DisplaySize, Enum.DomainType, Enum.DominantAxis, Enum.DragDetectorDragStyle, Enum.DragDetectorPermissionPolicy, Enum.DragDetectorResponseStyle, Enum.DraggingScrollBar, Enum.EasingDirection, Enum.EasingStyle, Enum.EditableStatus, Enum.ElasticBehavior, Enum.EngagementLevel, Enum.EngineFolder, Enum.EnviromentalPhysicsThrottle, Enum.ExperienceActivationStatus, Enum.ExperienceAuthScope, Enum.ExperienceEventStatus, Enum.ExperienceStateCaptureSelectionMode, Enum.ExperienceStateRecordingLoadMode, Enum.ExperienceStateRecordingLoadSourceType, Enum.ExperienceStateRecordingPlaybackMode, Enum.ExplosionType, Enum.FACSDataLod, Enum.FacialAgeEstimationResultType, Enum.FacialAnimationStreamingState, Enum.FacsActionUnit, Enum.FeatureRestrictionAbuseVector, Enum.FeedbackType, Enum.FieldOfViewMode, Enum.FillDirection, Enum.FilterResult, Enum.FilterType, Enum.FinishRecordingOperation, Enum.FluidFidelity, Enum.FluidForces, Enum.Font, Enum.FontSize, Enum.FontStyle, Enum.FontWeight, Enum.ForceLimitMode, Enum.FormFactor, Enum.FrameStyle, Enum.FramerateManagerMode, Enum.FriendRequestEvent, Enum.FriendStatus, Enum.FunctionalTestResult, Enum.GameAvatarType, Enum.GamepadType, Enum.GearGenreSetting, Enum.GearType, Enum.Genre, Enum.GraphicsMode, Enum.GraphicsOptimizationMode, Enum.GroupMembershipStatus, Enum.GuiState, Enum.GuiType, Enum.HandlesStyle, Enum.HapticEffectType, Enum.HashAlgorithm, Enum.HighlightDepthMode, Enum.HorizontalAlignment, Enum.HttpCachePolicy, Enum.HttpCompression, Enum.HttpContentType, Enum.HttpError, Enum.HttpRequestType, Enum.HumanoidCollisionType, Enum.HumanoidDisplayDistanceType, Enum.HumanoidHealthDisplayType, Enum.HumanoidRigType, Enum.HumanoidStateType, Enum.IKCollisionsMode, Enum.IKControlConstraintSupport, Enum.IKControlType, Enum.IXPLoadingStatus, Enum.ImageAlphaType, Enum.ImageCombineType, Enum.InOut, Enum.InfoType, Enum.InitialDockState, Enum.InputActionType, Enum.InputSink, Enum.InputType, Enum.InstanceFileSyncStatus, Enum.IntermediateMeshGenerationResult, Enum.InternalVideoUsage, Enum.InterpolationThrottlingMode, Enum.InviteState, Enum.ItemLineAlignment, Enum.JoinSource, Enum.JointCreationMode, Enum.KeyCode, Enum.KeyInterpolationMode, Enum.KeywordFilterType, Enum.Language, Enum.LeftRight, Enum.LightingStyle, Enum.Limb, Enum.LineJoinMode, Enum.ListenerLocation, Enum.ListenerType, Enum.LoadCharacterLayeredClothing, Enum.LoadDynamicHeads, Enum.LocationType, Enum.LuauTypeCheckMode, Enum.MakeupType, Enum.MarketplaceBulkPurchasePromptStatus, Enum.MarketplaceItemPurchaseStatus, Enum.MarketplaceProductType, Enum.MatchmakingType, Enum.Material, Enum.MaterialPattern, Enum.MembershipType, Enum.MeshPartDetailLevel, Enum.MeshPartHeadsAndAccessories, Enum.MeshType, Enum.MessageType, Enum.ModelLevelOfDetail, Enum.ModelStreamingBehavior, Enum.ModelStreamingMode, Enum.ModerationResultCategory, Enum.ModerationResultLabel, Enum.ModerationStatus, Enum.ModifierKey, Enum.MouseBehavior, Enum.MoveState, Enum.MuteState, Enum.NameOcclusion, Enum.NegateOperationHiddenHistory, Enum.NetworkOwnership, Enum.NetworkStatus, Enum.NoiseType, Enum.NormalId, Enum.NotificationButtonType, Enum.OperationType, Enum.OrientationAlignmentMode, Enum.OutfitSource, Enum.OutfitType, Enum.OverrideMouseIconBehavior, Enum.PackagePermission, Enum.PartType, Enum.ParticleEmitterShape, Enum.ParticleEmitterShapeInOut, Enum.ParticleEmitterShapeStyle, Enum.ParticleFlipbookLayout, Enum.ParticleFlipbookMode, Enum.ParticleFlipbookTextureCompatible, Enum.ParticleOrientation, Enum.PathStatus, Enum.PathWaypointAction, Enum.PathfindingUseImprovedSearch, Enum.PeoplePageLayout, Enum.PerformanceOverlayMode, Enum.PhysicsSimulationRate, Enum.PhysicsSteppingMethod, Enum.Platform, Enum.PlaybackState, Enum.PlayerActions, Enum.PlayerCharacterDestroyBehavior, Enum.PlayerChatType, Enum.PlayerDataErrorState, Enum.PlayerDataLoadFailureBehavior, Enum.PlayerExitReason, Enum.PlayerPlatformActivationStatus, Enum.PlayerPlatformSpenderStatus, Enum.PoseEasingDirection, Enum.PoseEasingStyle, Enum.PositionAlignmentMode, Enum.PredictionMode, Enum.PredictionStatus, Enum.PreferredInput, Enum.PreferredTextSize, Enum.PrefetchDownloadStatus, Enum.PrimalPhysicsSolver, Enum.PrimitiveType, Enum.PrivilegeType, Enum.ProductLocationRestriction, Enum.ProductPurchaseChannel, Enum.ProductPurchaseDecision, Enum.PromptCreateAssetResult, Enum.PromptCreateAvatarResult, Enum.PromptExperienceDetailsResult, Enum.PromptLinkSharingResult, Enum.PromptPublishAssetResult, Enum.PropertyStatus, Enum.ProximityPromptExclusivity, Enum.ProximityPromptInputType, Enum.ProximityPromptStyle, Enum.PurchaseOption, Enum.QualityLevel, Enum.R15CollisionType, Enum.RaycastFilterType, Enum.ReadCapturesFromGalleryResult, Enum.ReceiptDecision, Enum.ReceiptType, Enum.RecommendationActionType, Enum.RecommendationDepartureIntent, Enum.RecommendationImpressionType, Enum.RecommendationItemContentType, Enum.RecommendationItemVisibility, Enum.RecommendationPreferenceTargetType, Enum.RecommendationPreferenceType, Enum.RejectCharacterDeletions, Enum.RenderFidelity, Enum.RenderPriority, Enum.RenderingCacheOptimizationMode, Enum.RenderingTestComparisonMethod, Enum.ReplicateInstanceDestroySetting, Enum.ResamplerMode, Enum.ReservedHighlightId, Enum.ReturnKeyType, Enum.ReverbType, Enum.ReviewableContentState, Enum.RibbonTool, Enum.RigLabel, Enum.RollOffMode, Enum.RolloutState, Enum.RotationOrder, Enum.RotationType, Enum.RsvpStatus, Enum.RtlTextSupport, Enum.RunContext, Enum.RunState, Enum.RuntimeUndoBehavior, Enum.SafeAreaCompatibility, Enum.SalesTypeFilter, Enum.SandboxedInstanceMode, Enum.SaveAvatarThumbnailCustomizationFailure, Enum.SaveFilter, Enum.SavedQualitySetting, Enum.ScaleType, Enum.ScopeCheckResult, Enum.ScreenInsets, Enum.ScreenOrientation, Enum.ScreenshotCaptureResult, Enum.ScriptStoppedReason, Enum.ScriptVariableScope, Enum.ScrollBarInset, Enum.ScrollingDirection, Enum.SecurityCapability, Enum.SelectionBehavior, Enum.SelectionRenderMode, Enum.SelfViewPosition, Enum.SensorMode, Enum.SensorUpdateType, Enum.ShowAdResult, Enum.SignalBehavior, Enum.SizeConstraint, Enum.SlimTintMode, Enum.SolidPrimitiveType, Enum.SolverConvergenceMetricType, Enum.SolverConvergenceVisualizationMode, Enum.SortDirection, Enum.SortOrder, Enum.SpecialKey, Enum.StartCorner, Enum.StateObjectFieldType, Enum.Status, Enum.StepFrequency, Enum.StreamOutBehavior, Enum.StreamingIntegrityMode, Enum.StreamingPauseMode, Enum.StrokeSizingMode, Enum.StudioAction, Enum.StudioCaptureScreenshotFormat, Enum.StudioCloseMode, Enum.StudioDataModelType, Enum.StudioPlaceUpdateFailureReason, Enum.Style, Enum.SubscriptionExpirationReason, Enum.SubscriptionPaymentStatus, Enum.SubscriptionPeriod, Enum.SubscriptionState, Enum.SurfaceConstraint, Enum.SurfaceGuiShape, Enum.SurfaceGuiSizingMode, Enum.SurfaceType, Enum.SwipeDirection, Enum.SystemThemeValue, Enum.TableMajorAxis, Enum.TagReplicability, Enum.Technology, Enum.TelemetryBackend, Enum.TelemetryStandardizedField, Enum.TeleportMethod, Enum.TeleportResult, Enum.TeleportState, Enum.TeleportType, Enum.TerrainAcquisitionMethod, Enum.TerrainFace, Enum.TerrainLiquidMergeOperation, Enum.TerrainSolidMergeOperation, Enum.TextChatMessageStatus, Enum.TextDirection, Enum.TextFilterContext, Enum.TextInputType, Enum.TextTruncate, Enum.TextXAlignment, Enum.TextYAlignment, Enum.TextureMode, Enum.TextureQueryType, Enum.ThreadPoolConfig, Enum.ThrottlingPriority, Enum.ThumbnailSize, Enum.ThumbnailType, Enum.TickCountSampleMethod, Enum.TonemapperPreset, Enum.TopBottom, Enum.TouchCameraMovementMode, Enum.TouchMovementMode, Enum.TrackerError, Enum.TrackerExtrapolationFlagMode, Enum.TrackerFaceTrackingStatus, Enum.TrackerLodFlagMode, Enum.TrackerLodValueMode, Enum.TrackerMode, Enum.TrackerPromptEvent, Enum.TrackerType, Enum.TriStateBoolean, Enum.TweenStatus, Enum.UICaptureMode, Enum.UIDragDetectorBoundingBehavior, Enum.UIDragDetectorDragRelativity, Enum.UIDragDetectorDragSpace, Enum.UIDragDetectorDragStyle, Enum.UIDragDetectorResponseStyle, Enum.UIDragSpeedAxisMapping, Enum.UIFlexAlignment, Enum.UIFlexMode, Enum.UiMessageType, Enum.UpdateState, Enum.UploadCaptureResult, Enum.UsageContext, Enum.UserCFrame, Enum.UserInputState, Enum.UserInputType, Enum.VRComfortSetting, Enum.VRControllerModelMode, Enum.VRDeviceType, Enum.VRLaserPointerMode, Enum.VRSafetyBubbleMode, Enum.VRScaling, Enum.VRSessionState, Enum.VRTouchpad, Enum.VRTouchpadMode, Enum.VelocityConstraintMode, Enum.VerticalAlignment, Enum.VerticalScrollBarPosition, Enum.VibrationMotor, Enum.VideoCaptureResult, Enum.VideoCaptureStartedResult, Enum.VideoDeviceCaptureQuality, Enum.VideoError, Enum.VideoSampleSize, Enum.ViewMode, Enum.VirtualCursorMode, Enum.VirtualInputMode, Enum.VoiceChatDistanceAttenuationType, Enum.VoiceChatState, Enum.VoiceClientLeaveReasons, Enum.VoiceControlPath, Enum.VoiceRccReconnectReason, Enum.VolumetricAudio, Enum.WaterDirection, Enum.WaterForce, Enum.WebSocketState, Enum.WebStreamClientState, Enum.WebStreamClientType, Enum.WeldConstraintPreserve, Enum.WhenUserFirstPlayed, Enum.WhisperChatPrivacyMode, Enum.WrapLayerAutoSkin, Enum.WrapLayerDebugMode, Enum.WrapTargetDebugMode, Enum.ZIndexBehavior}
 
@@ -41,6 +41,18 @@ local instanceTable = {
 		Archivable = true,
 		Time = 0,
 		Name = "Keyframe"
+	},
+	UICorner = {
+		Archivable = true,
+		CornerRadius = UDim.new(),
+		Name = 'UICorner'
+	},
+	UIAspectRatioConstraint = {
+		Archivable = true,
+		AspectRatio = 1,
+		AspectType = Enum.AspectType.FitWithinMaxSize,
+		DominantAxis = Enum.DominantAxis.Width,
+		Name = "UIAspectRatioConstraint"
 	},
 	Pose = {
 		Archivable = true,
@@ -153,6 +165,16 @@ local instanceTable = {
 		Archivable = true,
 		Enabled = true,
 		RunContext = Enum.RunContext.Legacy
+	},
+	LocalScript = {
+		Name = "LocalScript",
+		Archivable = true,
+		Enabled = true,
+		RunContext = Enum.RunContext.Legacy
+	},
+	ModuleScript = {
+		Name = "ModuleScript",
+		Archivable = true
 	},
 	BindableEvent = {
 		Name = "Event",
@@ -377,6 +399,145 @@ local instanceTable = {
 		D = 500,
 		MaxTorque = Vector3.new(400000, 0, 400000),
 		P = 3000
+	},
+	UIGradient = {
+		Name = "UIGradient",
+		Archivable = true,
+		Color = ColorSequence.new(Color3.new(1, 1, 1)),
+		Enabled = true,
+		Offset = Vector2.new(),
+		Rotation = 0,
+		Transparency = NumberSequence.new(0)
+	},
+	CanvasGroup = {
+		Name = "CanvasGroup",
+		Archivable = true,
+		Active = false,
+		AnchorPoint = Vector2.new(),
+		AutoLocalize = true,
+		AutomaticSize = Enum.AutomaticSize.None,
+		BackgroundColor3 = Color3.fromRGB(163, 162, 165),
+		BackgroundTransparency = 0,
+		BorderColor3 = Color3.fromRGB(27, 42, 53),
+		BorderMode = Enum.BorderMode.Outline,
+		BorderSizePixel = 1,
+		ClipsDescendants = true,
+		GroupColor3 = Color3.new(1, 1, 1),
+		GroupTransparency = 0,
+		Interactable = true,
+		LayoutOrder = 0,
+		Position = UDim2.new(),
+		Rotation = 0,
+		Size = UDim2.new(),
+		SizeConstraint = Enum.SizeConstraint.RelativeXY,
+		Visible = true,
+		ZIndex = 1
+	},
+	UIListLayout = {
+		Name = "UIListLayout",
+		Archivable = true,
+		FillDirection = Enum.FillDirection.Vertical,
+		HorizontalAlignment = Enum.HorizontalAlignment.Left,
+		ItemLineAlignment = Enum.ItemLineAlignment.Automatic,
+		Padding = UDim.new(),
+		SortOrder = Enum.SortOrder.Name,
+		VerticalAlignment = Enum.VerticalAlignment.Top
+	},
+	TextButton = {
+		["Active"] = true,
+		["AnchorPoint"] = 0, 0,
+		["Archivable"] = true,
+		["AutoButtonColor"] = true,
+		["AutoLocalize"] = true,
+		["AutomaticSize"] = Enum.AutomaticSize.None,
+		["BackgroundColor3"] = 0.639216, 0.635294, 0.647059,
+		["BackgroundTransparency"] = 0,
+		["BorderColor3"] = 0.105882, 0.164706, 0.207843,
+		["BorderMode"] = Enum.BorderMode.Outline,
+		["BorderSizePixel"] = 1,
+		["ClipsDescendants"] = false,
+		["FontFace"] = Font.new("rbxasset://fonts/families/LegacyArial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+		["Interactable"] = true,
+		["LayoutOrder"] = 0,
+		["LineHeight"] = 1,
+		["MaxVisibleGraphemes"] = -1,
+		["Modal"] = false,
+		["Name"] = "TextButton",
+		["Position"] = {0, 0}, {0, 0},
+		["RichText"] = false,
+		["Rotation"] = 0,
+		["Selected"] = false,
+		["Size"] = {0, 0}, {0, 0},
+		["SizeConstraint"] = Enum.SizeConstraint.RelativeXY,
+		["Style"] = Enum.ButtonStyle.Custom,
+		["Text"] = "Button",
+		["TextColor3"] = 0.105882, 0.164706, 0.207843,
+		["TextDirection"] = Enum.TextDirection.Auto,
+		["TextScaled"] = false,
+		["TextSize"] = 8,
+		["TextStrokeColor3"] = 0, 0, 0,
+		["TextStrokeTransparency"] = 1,
+		["TextTransparency"] = 0,
+		["TextTruncate"] = Enum.TextTruncate.None,
+		["TextWrapped"] = false,
+		["TextXAlignment"] = Enum.TextXAlignment.Center,
+		["TextYAlignment"] = Enum.TextYAlignment.Center,
+		["Visible"] = true,
+		["ZIndex"] = 1
+	},
+	ImageButton = {
+		["Active"] = true,
+		["AnchorPoint"] = 0, 0,
+		["Archivable"] = true,
+		["AutoButtonColor"] = true,
+		["AutoLocalize"] = true,
+		["AutomaticSize"] = Enum.AutomaticSize.None,
+		["BackgroundColor3"] = 0.639216, 0.635294, 0.647059,
+		["BackgroundTransparency"] = 0,
+		["BorderColor3"] = 0.105882, 0.164706, 0.207843,
+		["BorderMode"] = Enum.BorderMode.Outline,
+		["BorderSizePixel"] = 1,
+		["ClipsDescendants"] = false,
+		["HoverImage"] = "",
+		["Image"] = "",
+		["ImageColor3"] = 1, 1, 1,
+		["ImageRectOffset"] = 0, 0,
+		["ImageRectSize"] = 0, 0,
+		["ImageTransparency"] = 0,
+		["Interactable"] = true,
+		["LayoutOrder"] = 0,
+		["Modal"] = false,
+		["Name"] = "ImageButton",
+		["Position"] = {0, 0}, {0, 0},
+		["PressedImage"] = "",
+		["ResampleMode"] = Enum.ResamplerMode.Default,
+		["Rotation"] = 0,
+		["ScaleType"] = Enum.ScaleType.Stretch,
+		["Selected"] = false,
+		["Size"] = {0, 0}, {0, 0},
+		["SizeConstraint"] = Enum.SizeConstraint.RelativeXY,
+		["SliceCenter"] = 0, 0, 0, 0,
+		["SliceScale"] = 1,
+		["Style"] = Enum.ButtonStyle.Custom,
+		["TileSize"] = {1, 0}, {1, 0},
+		["Visible"] = true,
+		["ZIndex"] = 1
+	},
+	UITextSizeConstraint = {
+		Name = "UITextSizeConstraint",
+		Archivable = true,
+		MaxTextSize = 100,
+		MinTextSize = 1
+	},
+	UIStroke = {
+		["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual,
+		["Archivable"] = true,
+		["Color"] = 0, 0, 0,
+		["Enabled"] = true,
+		["LineJoinMode"] = Enum.LineJoinMode.Round,
+		["Name"] = "UIStroke",
+		["Thickness"] = 1,
+		["Transparency"] = 0
 	}
 } :: {[string]: {[string]: any}}
 
@@ -406,7 +567,7 @@ end
 
 -- DEFINITIONS
 local numberIdentifiers = getSorted({"nan", "+inf", "-inf", "u8", "u16", "u32", "u64", "i8", "i16", "i32", "i64", "f32", "f64"})
-local datatypeList = getSorted({"number", "true", "false", "string", "Color3", "Vector2", "Vector3", "UDim2", "CFrame", "EnumItem", "Instance", "Font", "PhysicalProperties", "nil"})
+local datatypeList = getSorted({"number", "true", "false", "string", "Color3", "Vector2", "Vector3", "UDim2", "CFrame", "EnumItem", "Instance", "Font", "PhysicalProperties", "NumberSequence", "ColorSequence", "nil"})
 
 local enumIndexMap = {}
 for i, enum in ipairs(enumList) do enumIndexMap[enum] = i end
@@ -501,6 +662,20 @@ local function serializeDatatype(datatype: any, instanceMap: {[Instance]: number
 		return identifier .. string.pack("<I2", #datatype.Family) .. datatype.Family .. string.pack("<I2I2", datatype.Weight.Value, datatype.Style.Value)
 	elseif t == "PhysicalProperties" then
 		return identifier .. string.pack("<fffff", datatype.Density, datatype.Friction, datatype.Elasticity, datatype.FrictionWeight, datatype.ElasticityWeight)
+	elseif t == "NumberSequence" then
+		local keypoints = datatype.Keypoints
+		local res = identifier .. string.pack("<I2", #keypoints)
+		for _, kp in ipairs(keypoints) do
+			res = res .. string.pack("<fff", kp.Time, kp.Value, kp.Envelope)
+		end
+		return res
+	elseif t == "ColorSequence" then
+		local keypoints = datatype.Keypoints
+		local res = identifier .. string.pack("<I2", #keypoints)
+		for _, kp in ipairs(keypoints) do
+			res = res .. string.pack("<fBBB", kp.Time, math.floor(kp.Value.R*255), math.floor(kp.Value.G*255), math.floor(kp.Value.B*255))
+		end
+		return res
 	elseif t == "Instance" then
 		if instanceMap and instanceMap[datatype] then
 			return identifier .. string.pack("<I4", instanceMap[datatype])
@@ -633,6 +808,26 @@ local function deserializeDatatype(data: string, offset: number)
 	elseif typeName == "PhysicalProperties" then
 		local den, fri, ela, friW, elaW = string.unpack("<fffff", data, offset)
 		return PhysicalProperties.new(den, fri, ela, friW, elaW), offset + 20
+	elseif typeName == "NumberSequence" then
+		local count = string.unpack("<I2", data, offset)
+		offset += 2
+		local keypoints = table.create(count)
+		for i = 1, count do
+			local time, val, env = string.unpack("<fff", data, offset)
+			keypoints[i] = NumberSequenceKeypoint.new(time, val, env)
+			offset += 12
+		end
+		return NumberSequence.new(keypoints), offset
+	elseif typeName == "ColorSequence" then
+		local count = string.unpack("<I2", data, offset)
+		offset += 2
+		local keypoints = table.create(count)
+		for i = 1, count do
+			local time, r, g, b = string.unpack("<fBBB", data, offset)
+			keypoints[i] = ColorSequenceKeypoint.new(time, Color3.fromRGB(r, g, b))
+			offset += 7
+		end
+		return ColorSequence.new(keypoints), offset
 	elseif typeName == "Instance" then
 		local index = string.unpack("<I4", data, offset)
 		return {__isInstancePtr = true, index = index}, offset + 4
